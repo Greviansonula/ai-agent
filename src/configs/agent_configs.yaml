@@ -1,0 +1,12 @@
+model:
+  name: claude-3-7-sonnet-20250219
+  max_tokens: 8000
+  context_window: 100000
+
+agent:
+  system_prompt: |
+    You are a Super Technical Support assistant...
+
+databases:
+  postgres_url: "postgresql://${PG_USER}:${PG_PASSWORD}@${DB_HOST}:${PG_PORT}/${PG_DB}"
+  couch_url: "http://${COUCH_USER}:${COUCH_PASSWORD}@${COUCH_HOST}:${COUCH_PORT}"

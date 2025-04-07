@@ -1,0 +1,16 @@
+services:
+  couchdb:
+    image: couchdb:3.3
+    container_name: couchdb_server
+    restart: unless-stopped
+    ports:
+      - "${COUCH_PORT:-5984}:5984"
+    environment:
+      COUCHDB_USER: ${COUCH_USER}
+      COUCHDB_PASSWORD: ${COUCH_PASSWORD}
+    volumes:
+      - couchdb_data:/opt/couchdb/data
+
+volumes:
+  couchdb_data:
+    driver: local
